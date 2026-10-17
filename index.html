@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Node.js Practical Journal</title>
+  <style>
+    :root {
+      --green: #43853d;
+      --dark: #163321;
+      --light: #f3f8f2;
+      --text: #1f2937;
+      --muted: #64748b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #163321, #43853d);
+      color: white;
+      padding: 58px 20px 52px;
+      text-align: center;
+    }
+    header .tag {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 999px;
+      padding: 5px 13px;
+      font-size: .85rem;
+      letter-spacing: .04em;
+      margin-bottom: 14px;
+    }
+    h1 { margin: 0 0 10px; font-size: clamp(2rem, 5vw, 3.2rem); }
+    header p { margin: 0 auto; max-width: 680px; color: #e4f3e1; }
+    main { max-width: 1100px; margin: 0 auto; padding: 28px 18px 48px; }
+    .intro {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+      margin: -8px 0 28px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 8px 25px rgba(22,51,33,.07);
+      border: 1px solid #e2eadf;
+    }
+    .card h2, .card h3 { margin-top: 0; color: var(--dark); }
+    .number { color: var(--green); font-size: 1.6rem; font-weight: 700; }
+    .section-title { margin: 30px 0 12px; color: var(--dark); }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
+    a.button, button {
+      appearance: none; border: 0; border-radius: 9px; padding: 11px 16px;
+      font-size: .95rem; font-weight: 700; cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .primary { background: var(--green); color: white; }
+    .secondary { background: #e5efe2; color: var(--dark); }
+    a.button:hover, button:hover { filter: brightness(.96); }
+    .viewer {
+      background: white; border-radius: 16px; overflow: hidden;
+      border: 1px solid #d9e4d5; box-shadow: 0 8px 25px rgba(22,51,33,.07);
+    }
+    .viewer-head {
+      padding: 14px 18px; display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 10px; background: #f8fbf7;
+      border-bottom: 1px solid #d9e4d5;
+    }
+    .viewer-head strong { color: var(--dark); }
+    iframe { width: 100%; height: 78vh; min-height: 540px; border: 0; display: block; }
+    .practicals { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+    .practical {
+      padding: 15px 16px; background: white; border: 1px solid #e2eadf;
+      border-radius: 12px;
+    }
+    .practical b { color: var(--green); display: block; margin-bottom: 4px; }
+    footer { text-align: center; padding: 22px 16px; color: var(--muted); font-size: .9rem; }
+    @media (max-width: 600px) {
+      header { padding: 42px 18px; }
+      iframe { height: 68vh; min-height: 420px; }
+      .viewer-head { align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="tag">B.Sc. Computer Science • Semester V</div>
+    <h1>Node.js Practical Journal</h1>
+    <p>Yashwantrao Chavan Mahavidyalaya, Islampur<br>VSC II (Major Specific) — Node.js</p>
+  </header>
+
+  <main>
+    <section class="intro" aria-label="Journal overview">
+      <article class="card">
+        <div class="number">16 Practicals</div>
+        <h3>Practical Programs</h3>
+        <p>Explore the Node.js exercises included in the journal, from process and Buffer basics to HTTP servers, events, and MongoDB.</p>
+      </article>
+      <article class="card">
+        <div class="number">22 Pages</div>
+        <h3>PDF Journal</h3>
+        <p>Read the uploaded practical journal directly on this website, or open it separately and download or print it from your PDF viewer.</p>
+      </article>
+      <article class="card">
+        <h3>About this journal</h3>
+        <p>This journal contains practical questions, program analysis, code examples, and outputs for Node.js laboratory work.</p>
+      </article>
+    </section>
+
+    <section>
+      <h2 class="section-title">Read the PDF</h2>
+      <p>Use the embedded viewer below to read the journal without leaving this page.</p>
+      <div class="toolbar">
+        <a class="button primary" href="node-js-journal.pdf" target="_blank" rel="noopener">Open PDF in New Tab</a>
+        <a class="button secondary" href="node-js-journal.pdf" download>Download PDF</a>
+        <button class="secondary" onclick="document.getElementById('journal-viewer').contentWindow.print()">Print PDF</button>
+      </div>
+      <div class="viewer">
+        <div class="viewer-head">
+          <strong>Node.js Practical Journal — PDF Viewer</strong>
+          <span>Embedded document</span>
+        </div>
+        <iframe id="journal-viewer" src="node-js-journal.pdf" title="Node.js Practical Journal PDF">
+          Your browser does not support embedded PDFs.
+          <a href="node-js-journal.pdf">Open the PDF here.</a>
+        </iframe>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Practical Index</h2>
+      <div class="practicals">
+        <div class="practical"><b>01</b>Node.js version and operating system platform</div>
+        <div class="practical"><b>02</b>Create and display a Buffer</div>
+        <div class="practical"><b>03</b>Use setTimeout() for delayed output</div>
+        <div class="practical"><b>04</b>Create an HTTP server on port 3000</div>
+        <div class="practical"><b>05</b>Handle Home and About routes</div>
+        <div class="practical"><b>06</b>Create a JSON /user API endpoint</div>
+        <div class="practical"><b>07</b>Parse a URL and query string</div>
+        <div class="practical"><b>08</b>Extract name and age from a query string</div>
+        <div class="practical"><b>09</b>Create and import a custom math module</div>
+        <div class="practical"><b>10</b>Display working directory and memory usage</div>
+        <div class="practical"><b>11</b>Read a name query and display a greeting</div>
+        <div class="practical"><b>12</b>Use Chalk to print colored messages</div>
+        <div class="practical"><b>13</b>Handle GET and POST requests</div>
+        <div class="practical"><b>14</b>Use EventEmitter with name and age arguments</div>
+        <div class="practical"><b>15</b>Run an event listener only once</div>
+        <div class="practical"><b>16</b>Connect to MongoDB and insert a student</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Node.js Practical Journal Website • PDF included in this folder</footer>
+</body>
+</html>
